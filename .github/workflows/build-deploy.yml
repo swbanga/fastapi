@@ -85,7 +85,7 @@ jobs:
           username: ${{ secrets.AZURE_VM_USERNAME }}
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
           script: |
-            cd ~/fastapi
+            cd /home/swbanga/app/src
             git pull origin main
             docker compose -f docker-compose.yml -f docker-compose-prod.yml pull
             docker compose -f docker-compose.yml -f docker-compose-prod.yml up -d
