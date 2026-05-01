@@ -2,10 +2,15 @@
 
 services:
   api:
-    restart: always
-    command: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+    # THE MATHEMATICAL TRUTH: Points directly to your Docker Hub
+    image: swbanga1/fastapi:latest 
+    build:
+      context: .
+    # (Keep your existing ports, environment variables, and depends_on here)
+    env_file:
+      - .env
     ports:
-      - "127.0.0.1:8000:8000"
+      - "8000:8000"
 
   db:
     restart: always
