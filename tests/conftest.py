@@ -9,7 +9,7 @@ from app.oauth2 import create_access_token
 from app import models
 
 # Ensure you are targeting port 5433 to punch through the local dev mount
-SQLALCHEMY_DATABASE_URL = "postgresql://swbanga:pass123.@localhost:5433/fastapi_test"
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@localhost:5433/fastapi_test"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
