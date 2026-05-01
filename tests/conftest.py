@@ -6,7 +6,7 @@ from app.main import app
 from app.config import settings
 from app.database import get_db
 from app.oauth2 import create_access_token
-from app import models
+from app import models 
 
 # Ensure you are targeting port 5433 to punch through the local dev mount
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@localhost:5433/fastapi_test"
