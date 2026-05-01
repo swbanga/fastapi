@@ -86,6 +86,8 @@ jobs:
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
           script: |
             cd /home/swbanga/app/src
-            git pull origin main
+            # The DevSecOps Hard Reset
+            git fetch --all
+            git reset --hard origin/main
             docker compose -f docker-compose.yml -f docker-compose-prod.yml pull
             docker compose -f docker-compose.yml -f docker-compose-prod.yml up -d
